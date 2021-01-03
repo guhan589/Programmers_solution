@@ -1,6 +1,6 @@
 package com.programmers.level1;
 
-public class ternary_scale {
+public class Ternary_scale {
     /**
      * 3진법 뒤집기
      * **/

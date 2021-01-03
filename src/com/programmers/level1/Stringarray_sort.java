@@ -2,7 +2,7 @@ package com.programmers.level1;
 
 import java.util.*;
 
-public class stringarray_sort {
+public class Stringarray_sort {
     /**
      *문자열 내 마음대로 정렬하기
      * **/

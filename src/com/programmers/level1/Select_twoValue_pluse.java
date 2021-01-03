@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class select_twoValue_pluse {
+public class Select_twoValue_pluse {
     /**
      * 두개 뽑아서 더하기
      * */

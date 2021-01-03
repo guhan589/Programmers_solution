@@ -1,6 +1,6 @@
 package com.programmers.level1;
 
-public class inner {
+public class Inner {
     /**
      * 내적
      * */
