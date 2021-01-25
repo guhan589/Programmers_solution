@@ -46,10 +46,7 @@ public class ConnectLand {
         Arrays.sort(costs, new Comparator<int[]>() { // 가중치를 기준으로 오름차순 정렬
             @Override
             public int compare(int[] o1, int[] o2) {
-                /*int a = Integer.parseInt(String.valueOf(o1[2]));
-                int b = Integer.parseInt(String.valueOf(o2[2]));
-                System.out.println("a = " + a);
-                System.out.println("b = " + b);*/
+
                 Integer a = o1[2];
                 Integer b = o2[2];
                 return a.compareTo(b); // a==b -> 0, a>b -> 양수 a<b -> 음수 반환
@@ -69,52 +66,8 @@ public class ConnectLand {
         }
         return answer;
 
-        /*List<Node> list = addList(costs); //list추가
-        System.out.println("list.size()=>" + list.size());*/
+
 
     }
 
-    /*static int getMaxvalue(int i, int[][] array) {
-        int result = 0;
-        List<Integer> list = new ArrayList<>();
-
-        result = Math.max()
-        return result;
-    }*/
-    /*static List<Node> addList(int[][] costs) { // 각 Node를 list에 추가
-        List<Node> list = new ArrayList<>();
-
-
-        *//**
-         * cost[i][0] == 지점
-         * cost[i][1] == 지점
-         * cost[i][2] == 비용
-         * *//*
-        for (int i = 0; i < costs.length; i++) {
-            list.add(new Node(costs[i][0], costs[i][1], costs[i][2]));
-        }
-        return list;
-    }
-*/
-    static class Node{
-        int aLocation, bLocation, coast;
-
-        public Node(int aLocation, int bLocation, int coast) {
-            this.aLocation = aLocation;
-            this.bLocation = bLocation;
-            this.coast = coast;
-        }
-
-        public int getaLocation() {
-            return aLocation;
-        }
-
-        public int getbLocation() {
-            return bLocation;
-        }
-
-        public int getCoast() {
-            return coast;
-        }
-    }
 }
