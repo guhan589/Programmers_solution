@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * 
- * 메뉴 리뉴얼
+ * 메뉴 리뉴얼(미완성)
  *
  *
  * **/
@@ -36,19 +36,19 @@ public class Menu {
         ArrayList<String> resultList = new ArrayList<>();//정상 문자 리스트
         
         for (Character ch : map.keySet()) {
+
+//            System.out.println("ch + = " + ch + ", ch.get():" + map.get(ch));
             if(map.get(ch) > 1)
-                deleteChList.add(ch);
-            else
                 addChList.add(String.valueOf(ch));
+            else
+                deleteChList.add(ch);
         }
 
-        for (String s : addChList) {
-            System.out.println("s = " + s);
-        }
+
         for (Character value : deleteChList)
             map.remove(value);
 
-        System.out.println("map.size() = " + map.size());
+
         for (int i = 0; i < orders.length; i++) {
             int time = 0;
             for (int j = 0; j < addChList.size(); j++) {
