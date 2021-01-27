@@ -75,6 +75,9 @@ public class Menu {
         return answer;
     }
     static HashMap putValue(String[] orders){
+        /**
+         * HashMap에 데이터 값이 넣기(메뉴, 개수)
+         * */
         HashMap<Character, Integer> map = new HashMap<>();
 
         for (String s : orders) {
