@@ -1,6 +1,5 @@
 package com.programmers.level2;
 
-import org.junit.Test;
 
 import java.util.HashSet;
 
