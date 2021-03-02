@@ -1,5 +1,7 @@
 package com.programmers.level2;
 
+import java.util.Arrays;
+
 public class CandidateKey {
     public static void main(String[] args) {
         String[][] realtion ={
@@ -10,5 +12,21 @@ public class CandidateKey {
                 {"500","muzi","music","3"},
                 {"600","apeach","music","2"}
         };
+
+        int result = solution(realtion);
+        System.out.println("result = " + result);
     }
+
+    public static int solution(String[][] relation) {
+        int answer = 0;
+        
+        /**
+         * 유일성과 최소성
+         * */
+
+
+
+        return answer;
+    }
+
 }
