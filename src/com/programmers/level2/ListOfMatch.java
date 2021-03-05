@@ -2,7 +2,7 @@ package com.programmers.level2;
 
 public class ListOfMatch {
     public static void main(String[] args) {
-        int N = 8, A=4,B=7;
+        int N = 8, A = 4, B = 7;
         int result = solution(N, A, B);
         System.out.println("result==>"+result);
     }
