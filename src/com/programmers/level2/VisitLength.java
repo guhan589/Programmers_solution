@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Level 2 방문길이
- * 다시풀것
+ * Level 2 방문길이 (완성)
  * */
 public class VisitLength {
     public static void main(String[] args) {

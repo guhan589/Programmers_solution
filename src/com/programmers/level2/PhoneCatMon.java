@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 폰켓몬
+ * 폰켓몬 level2 (완성)
  * */
 public class PhoneCatMon {
     public static void main(String[] args) {

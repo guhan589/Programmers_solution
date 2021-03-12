@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 
 /**
  * 
- *프린터 level 2
+ *프린터 level 2 (완성)
  * */
 
 public class Printer {

@@ -2,6 +2,10 @@ package com.programmers.level2;
 
 import java.util.Arrays;
 
+
+/**
+ * 후보키 level2 미완성
+ * */
 public class CandidateKey {
     public static void main(String[] args) {
         String[][] realtion ={

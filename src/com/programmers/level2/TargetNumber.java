@@ -3,8 +3,7 @@ package com.programmers.level2;
 public class TargetNumber {
     
     /**
-     * 타겟변환
-     * 
+     * 타겟변환 level2 (완성)
      * */
     public static void main(String[] args) {
         int[] numbers = {1, 1, 1, 1, 1};

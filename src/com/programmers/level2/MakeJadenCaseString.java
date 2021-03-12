@@ -3,11 +3,12 @@ package com.programmers.level2;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
+/**
+ *
+ * JadenCase 문자열 만들기 (완성)
+ * */
 public class MakeJadenCaseString {
-    /**
-     *
-     * JadenCase 문자열 만들기
-     * */
+
     public static void main(String[] aegs){
         String s = "3people  unFollowe d me";
         //String s = "p";

@@ -3,6 +3,10 @@ package com.programmers.level2;
 import java.util.Arrays;
 import java.util.Comparator;
 
+
+/**
+ * 파일명 정렬 level2 (완성)
+ * */
 public class SortFilename {
     public static void main(String[] args){
         //foo010bar020.zip
