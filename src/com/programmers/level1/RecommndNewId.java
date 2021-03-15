@@ -74,6 +74,7 @@ public class RecommndNewId {
         //         *      만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.
         if(id.length() >= 16) {
             id = id.substring(0, 15);
+            //dasdsadasdas
         }
 
         // 마지막 . 제거
