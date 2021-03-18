@@ -36,7 +36,7 @@ public class FindMusic2 {
         /**
          * 해결할 점
          * 
-         * 반올림 문자를 lowerCase 메소드를 통해서 변환하였고 그 반대로 변환하는 과정을 가져야함
+         * 반올림 문자를 lowerCase 메소드를 통해서 변환하였고 그 반대로 변환하는 과정을 가져야함x
          * **/
     }
 
@@ -45,7 +45,6 @@ public class FindMusic2 {
 
 
         String argx = removeChores(m).toLowerCase();//주어진 가사를 소문자로 변환
-
 
 
 //        ArrayList<String> list = new ArrayList<>();
