@@ -1,6 +1,7 @@
 package com.programmers.level2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,70 +21,60 @@ public class FindMusic2 {
         /**
          * 테스트케이스 2
          * */
-        /*String m = "CC#BCC#BCC#BCC#B";
-        String[] musicinfos = {"03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"};*/
+        String m = "CC#BCC#BCC#BCC#B";
+        String[] musicinfos = {"03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"};
 
         /**
          * 테스트케이스 3
          * */
-        String m = "ABC";
-        String[] musicinfos = {"12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"};
+        /*String m = "ABC";
+        String[] musicinfos = {"12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"};*/
 
         String solution = solution(m, musicinfos);
         System.out.println("solution = " + solution);
 
-        
+
         /**
          * 해결할 점
-         * 
+         *
          * 반올림 문자를 lowerCase 메소드를 통해서 변환하였고 그 반대로 변환하는 과정을 가져야함x
          * **/
     }
 
     public static String solution(String m, String[] musicinfos) {
-        String answer = "";
+        String answer = "(None)";
+        int i, j;
 
+        /*System.out.println("m = " + m);*/
+        m = removeChores(m);
+        /*System.out.println("m 변경후= " + m);
+        System.out.println("musicinfos = " + musicinfos[0]);
+        System.out.println("musicinfos = " + musicinfos[1]);*/
 
-        String argx = removeChores(m).toLowerCase();//주어진 가사를 소문자로 변환
+        
+        
+        for (i = 0; i < musicinfos.length; i++) {
+            System.out.println("=========start"+i+"============");
+            System.out.println("m = " + m);
+            String[] split = musicinfos[i].split(",");
 
+            int runningtime = getConvertTime(split[0], split[1]); //실제 실행시간
+            String removeChores = removeChores(split[3]);// 반올림 코드삭제
 
-//        ArrayList<String> list = new ArrayList<>();
-
-        /*String[] startInfo = musicinfos[0].split(",");
-        String[] endInfo = musicinfos[1].split(",");*/
-
-
-        for (int i = 0; i < musicinfos.length; i++) {
-            String[] split = musicinfos[i].split(","); // 각 일차원 배열에 값을 ,을 기준으로 split함
-            System.out.println("시작시각 = " + split[0]);
-            System.out.println("끝난시각 = " + split[1]);
-
-
-            // split ==> "12:00,12:14,HELLO,CDEFGAB"
-            //0: 시작 시각, 1: 끝난 시각, 2 : 음악명, 3: 음악 가사
-
-
-            int time = getConvertTime(split[0], split[1]);
-            //종료시간 - 시작시간 = time
-
-
-            split[3] = removeChores(split[3]); //가사 변환
-
-            if (split[3].length() < time) {
-                //가사의 길이가 재생시간보다 짧으면 converChroes 함수를 호출하여 재생시간에 맞게 가사 생성
-                split[3] = setChores(split[3], time);
-            }else{
-                split[3] = split[3].substring(0, time);
+            if (runningtime < removeChores.length())
+                continue;
+            else{
+                split[3] = setChores(removeChores, runningtime); //가사길이가 재생시간에 맞게 수정
+                System.out.println("split = " + split[3]);
+                System.out.println("split = " + split[3].length()); 
+                
+                
             }
 
-//            System.out.println("argx = " + argx);
 
-            System.out.println("argx = " + argx);
-            System.out.println("음악가사 = " + split[3]);
-            System.out.println("=============================");
 
-            if(split[3].contains(argx))
-                return split[2];
+
+            System.out.println("=========end"+i+"============\n\n");
         }
 
         return answer;
@@ -99,28 +90,54 @@ public class FindMusic2 {
         return temp.toLowerCase();
         //변환한 가사를 소문자로 치환하여 반환
     }
-    static String convertChore(String chores) {
-        // 반올림 가사로 변롼
-        String answer = "";
-
-        return answer;
-    }
 
     static String setChores(String chores, int time) {
+        StringBuilder builder = new StringBuilder();
+
+        int argx = time / chores.length();
+        int temp = time % chores.length();
+
+
+        if (argx > 0)
+            for (int i = 0; i < argx; i++)
+                builder.append(chores);
+
+        builder.append(chores.substring(0, temp));
+
+        return builder.toString();
+    }
+
+    static String setChores(String chores, int len, int time) {
+
         //재셍시간에 맞게 가사의 길이를 변환
         StringBuilder builder = new StringBuilder();
 
-        int argx = time / chores.length(); //몫
-        int temp = time % chores.length(); //나머지
+        int argx = time / len; //몫
 
+        int temp = time % len; //나머지
+
+        System.out.println("argx = " + argx);
+        System.out.println("temp = " + temp);
         if (argx > 0) {
             for (int i = 0; i < argx; i++) {
                 builder.append(chores);
             }
-            builder.append(chores.substring(0,temp));//남은 시간 초에 해당하는 가사를 덧붙임
-        }else{
-            builder.append(chores).append(chores.substring(0, temp));
+            builder.append(chores.substring(0, temp));//남은 시간 초에 해당하는 가사를 덧붙임
+        } else {
+            builder.append(chores);
+            for (int i = 0; i < temp; i++) {
+                if (chores.charAt(i) == '#') {
+                    builder.append("#");
+                    ++temp;
+                } else {
+                    builder.append(chores.charAt(i));
+                }
+            }
+
         }
+
+        System.out.println("builder.toString() = " + builder.toString());
+        System.out.println("builder.toString().length() = " + builder.toString().length());
 
         return builder.toString();
     }
