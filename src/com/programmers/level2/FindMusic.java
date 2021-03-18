@@ -1,5 +1,9 @@
 package com.programmers.level2;
 
+
+/**
+ * 방금그곡 level2 미완성
+ * */
 public class FindMusic {
     public static String[] basic = {"C#", "D#", "E#", "F#", "G#", "A#"};
     public static String[] convert = {"c", "d", "e", "f", "g", "a"};

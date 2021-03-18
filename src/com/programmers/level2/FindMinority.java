@@ -3,6 +3,11 @@ package com.programmers.level2;
 
 import java.util.HashSet;
 
+
+/**
+ * 소수찾기 level2 미완성 
+ * 
+ * */
 //17 => 7 17 71
 public class FindMinority {
     public static void main(String[] args) {

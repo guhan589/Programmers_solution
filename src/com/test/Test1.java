@@ -7,15 +7,11 @@ import java.util.List;
 public class Test1 {
     public static void main(String[] args) {
         String[] str = {"AB", "AB", "BC", "DF"};
-        List<String> list = new ArrayList<String>();
-        for (String s : str) {
-            list.add(s);
-        }
+        String[] str1 = {"AB", "BC"};
+        List<String> list = new ArrayList<String>(Arrays.asList(str));
+        List<String> list1 = new ArrayList<String>(Arrays.asList(str1));
 
-        list.stream().distinct().forEach(s -> System.out.println(s));
-        /*Arrays.stream(str).distinct();
-        Arrays.stream(str).distinct();
-        Arrays.stream(str).forEach(s -> System.out.println(s));*/
+
 
     }
 }

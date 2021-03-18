@@ -3,7 +3,7 @@ package com.programmers.level2;
 
 /**
  *
- * 이진 변환 반복하기
+ * 이진 변환 반복하기 level2 (완성)
  *
  * */
 public class ConvertBinaryLoop {

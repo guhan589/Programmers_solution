@@ -1,5 +1,9 @@
 package com.programmers.level2;
 
+
+/**
+ * 점프와 순간이동 level2 완성
+ * */
 public class ListOfMatch {
     public static void main(String[] args) {
         int N = 8, A = 4, B = 7;

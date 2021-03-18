@@ -3,8 +3,7 @@ package com.programmers.level2;
 import java.util.ArrayList;
 
 /**
- * 영어 끝말잇기Level 2
- *
+ * 영어 끝말잇기Level 2 (완성)
  * */
 public class WordChangeGame {
     public static void main(String[] args) {

@@ -2,6 +2,10 @@ package com.programmers.level2;
 
 import java.util.*;
 
+
+/**
+ * 뉴스 클러스팅 level2 (완성)
+ * */
 public class NewsClustering {
     public static void main(String[] args){
 

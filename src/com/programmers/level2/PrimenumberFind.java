@@ -1,7 +1,7 @@
 package com.programmers.level2;
 
 /**
- * 소수 찾기 level 2
+ * 소수 찾기 level 2 (미완성)
  * */
 public class PrimenumberFind {
     public static void main(String[] args) {
