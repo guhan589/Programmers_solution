@@ -29,9 +29,11 @@ public class Joystick {
         int min_length = name.length() - 1;
 
         for (int i = 0; i < name.length(); i++) {//문자열 길이 만큼 반복문
+            System.out.println("Math.min(name.charAt(i) - 'A', 'Z' - name.charAt(i) + 1) = " + Math.min(name.charAt(i) - 'A', 'Z' - name.charAt(i) + 1));
             answer += Math.min(name.charAt(i) - 'A', 'Z' - name.charAt(i) + 1);
             //문자의 최소 이동 거리
 
+            System.out.println("answer = " + answer);
             int nextvalue = i + 1; //다음 문자 위치
 
             while (nextvalue < name.length() && name.charAt(nextvalue) == 'A')
