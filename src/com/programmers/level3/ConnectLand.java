@@ -7,19 +7,6 @@ import java.util.List;
 
 /**
  * 섬 연결하기 레벨 3
- *  public static void main(String[] args) {
- *
- *
- *
- *
- *         int n = 4;
- *
- *
- *         int result = solution(n, cost);
- *
- *         System.out.println("result ===> " + result);
- *
- *     }
  * **/
 public class ConnectLand {
     static int[] parent;
