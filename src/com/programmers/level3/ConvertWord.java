@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 단어변환
+ * 단어변환 level3 (완성)
  *
  * */
 public class ConvertWord {
@@ -48,19 +48,22 @@ public class ConvertWord {
 
         do {
 
-            System.out.println("temp = " + temp);
+
 
             //temp 문자열이 target 문자열과 같을 때까지
             //즉 target값으로 변할 때까지 loop
             for (i = 0; i < words.length; i++) {
                 // 주어진 String 배열 길이만큼 loop
 
-                
-                int count = 0; //target의 문자열과 특정 위치의 문자열의 단어차이를 뜻하는 변수
+                if (modify(temp, target)) {
+                    return ++answer;
+                }
 
+
+                int count = 0; //target의 문자열과 특정 위치의 문자열의 단어차이를 뜻하는 변수
                 for (int j = 0; j < begin_length; j++) {
                     //being_length => begin, target, words문자배열의 모든 문자열의 길이는 같음
-                    System.out.println("words[i] = " + words[i]);
+
                     if (temp.charAt(j) == words[i].charAt(j)) {
                         continue;
                     }else
@@ -69,13 +72,35 @@ public class ConvertWord {
                 }
                 System.out.println("count = " + count);
                 if (count > 1) {
-                    ;
+                    System.out.println("count>1 = " + words[i]);
+                    System.out.println("answer = " + answer);
+                    System.out.println("========================= \n\n\n\n");
                 } else {
+
                     temp = words[i]; //시작 타겟을 변경
                     answer++;
+                    System.out.println("count == 1 = " + words[i]);
+                    System.out.println("answer = " + answer);
+                    System.out.println("========================= \n\n\n\n");
+
                 }
             }
         } while (!temp.equals(target));
+
+        return answer;
+    }
+
+    static boolean modify(String word,String target) {
+        boolean answer = false;
+        int cnt = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != target.charAt(i)) {
+                cnt++;
+            }
+        }
+
+        if(cnt==1)
+            answer = true;
 
         return answer;
     }
