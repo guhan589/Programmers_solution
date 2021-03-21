@@ -28,15 +28,15 @@ public class Socar1 {
 
 
         String[] temp_split = times[0].split("~");
-        back_hour = temp_split[0].replaceAll(" ", "").replaceAll(":", "").substring(0, 2)
-        back_hour = temp_split[0].replaceAll(" ", "").replaceAll(":", "").substring(0, 2)
+        back_hour = temp_split[1].replaceAll(" ", "").replaceAll(":", "").substring(0, 2);
+        back_min = temp_split[1].replaceAll(" ", "").replaceAll(":", "").substring(2);
 
     for (String time : times) {
             String[] split = time.replaceAll(" ", "").replaceAll(":","").split("~");
             for (int i = 0; i < split.length; i++) {
                 if (i % 2 == 0) {//front
                     if (Integer.parseInt(front_hour) < Integer.parseInt(split[i].substring(0, 2)))
-                        front_hour = split[i].substring, 2);
+                        front_hour = split[i].substring(0, 2);
 
                     if (Integer.parseInt(front_min) < Integer.parseInt(split[i].substring(1)))
                         front_min = split[i].substring(2);
