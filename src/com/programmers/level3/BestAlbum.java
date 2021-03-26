@@ -2,7 +2,11 @@ package com.programmers.level3;
 
 import java.util.*;
 
-public class BestAlbum2 {
+
+/**
+ * 베스트 앨범 level3 (완성)
+ * */
+public class BestAlbum {
     public static void main(String[] args) {
         String[] genres = {"classic", "pop", "classic", "classic", "pop"};
         int[] plyas = {500, 600, 150, 800, 2500};
