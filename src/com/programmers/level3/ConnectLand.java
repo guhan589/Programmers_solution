@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * 섬 연결하기 레벨 3
+ * 섬 연결하기 레벨 3 (완성)
  * **/
 public class ConnectLand {
     static int[] parent;

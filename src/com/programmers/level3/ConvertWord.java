@@ -47,9 +47,6 @@ public class ConvertWord {
 
 
         do {
-
-
-
             //temp 문자열이 target 문자열과 같을 때까지
             //즉 target값으로 변할 때까지 loop
             for (i = 0; i < words.length; i++) {
@@ -71,18 +68,9 @@ public class ConvertWord {
 
                 }
                 System.out.println("count = " + count);
-                if (count > 1) {
-                    System.out.println("count>1 = " + words[i]);
-                    System.out.println("answer = " + answer);
-                    System.out.println("========================= \n\n\n\n");
-                } else {
-
+                if (count <= 1) {
                     temp = words[i]; //시작 타겟을 변경
                     answer++;
-                    System.out.println("count == 1 = " + words[i]);
-                    System.out.println("answer = " + answer);
-                    System.out.println("========================= \n\n\n\n");
-
                 }
             }
         } while (!temp.equals(target));

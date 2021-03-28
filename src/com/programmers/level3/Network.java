@@ -2,7 +2,7 @@ package com.programmers.level3;
 
 
 /**
- * 네트워크
+ * 네트워크 level3 (완성)
  * **/
 public class Network {
     public static void main(String[] args) {
