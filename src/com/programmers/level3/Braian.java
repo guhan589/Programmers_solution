@@ -25,6 +25,7 @@ public class Braian {
 //        String sentence = "AxAxAxAoBoBoB";
         String sentence = "SpIpGpOpNpGJqOqA";
         String solution = solution(sentence);
+
         System.out.println("solution = " + solution);
     }
     static String solution(String sentence) {
@@ -59,8 +60,8 @@ public class Braian {
                 break;
             }
         }
-
-
+        front_ch = set.stream().findFirst().get(); //앞글자
+        
         if (index == 0) { //규칙 1로만 구성되어 있을경우 "invalid" 문자열 반환
             return "invalid";
         }else{
@@ -83,10 +84,12 @@ public class Braian {
         String answer = "";
 
 
-        String[] split_str = sentence.split("");
-        if (split_str[0].equals(split_str[split_str.length - 1])) {
-            if (split_str[1].equals(split_str[split_str.length - 2])) {
-                return "invalid";
+        char[] split_str = sentence.toCharArray();
+        if (split_str[0] == split_str[split_str.length - 1]&& split_str[0] != front_ch) {
+            if (split_str[1] == split_str[split_str.length - 2] && split_str[1] != front_ch) {
+                if(split_str[0] != split_str[1])
+                    return "invalid";
+                else return "invalid";
             } else {
                 return sentence.substring(1, sentence.length() - 1);
             }
