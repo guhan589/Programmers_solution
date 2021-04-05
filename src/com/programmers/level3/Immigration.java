@@ -20,6 +20,9 @@ public class Immigration {
 
 //        int left = 1, min, right = Arrays.stream(times).max().getAsInt() * n;
 
+        //42 - 60
+        //1 - 60
+        //mid = (60+1) / 2 == 30
         return answer;
     }
 
