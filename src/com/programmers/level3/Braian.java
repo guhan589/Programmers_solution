@@ -22,8 +22,8 @@ public class Braian {
         //"AxAxAxAoBoBoB"	"invalid
 
 //        String sentence = "HaEaLaLaObWORLDb";
-//        String sentence = "AxAxAxAoBoBoB";
-        String sentence = "SpIpGpOpNpGJqOqA";
+        String sentence = "AxAxAxAoBoBoB";
+//        String sentence = "SpIpGpOpNpGJqOqA";
         String solution = solution(sentence);
 
         System.out.println("solution = " + solution);
@@ -47,6 +47,7 @@ public class Braian {
          * ex) HELLO -> HaEaLaLaO
          * */
         String answer = "";
+
         int index = 0;
 
         Set<Character> set = new HashSet<>(); //중복제거를 위한 Set사용
@@ -60,14 +61,27 @@ public class Braian {
                 break;
             }
         }
+
         front_ch = set.stream().findFirst().get(); //앞글자
+
         
         if (index == 0) { //규칙 1로만 구성되어 있을경우 "invalid" 문자열 반환
             return "invalid";
         }else{
+
             String result2 = pattern2(sentence.substring(index));
-            if(result2.equals("invalid"))
-                return "invalid";
+            if(result2.equals("invalid")){ // pattern 1 다시검사
+                String temp = sentence.substring(index);
+                System.out.println("temp = " + temp);
+                builder.append(" ");
+                for (int i = 1; i < temp.length(); i = i + 2) {
+                    builder.append(temp.charAt(i-1));
+                }
+                builder.append(temp.charAt(temp.length() - 1));
+
+                return builder.toString();
+            }
+
             else{
                 builder.append(" " + result2);
                 return builder.toString();
@@ -83,7 +97,6 @@ public class Braian {
          * */
         String answer = "";
 
-
         char[] split_str = sentence.toCharArray();
         if (split_str[0] == split_str[split_str.length - 1]&& split_str[0] != front_ch) {
             if (split_str[1] == split_str[split_str.length - 2] && split_str[1] != front_ch) {
@@ -96,11 +109,4 @@ public class Braian {
         }else
             return "invalid";
     }
-    /*static boolean pattern3(String sentence) {
-        status = false;
-
-
-        return status;
-    }*/
-
 }
