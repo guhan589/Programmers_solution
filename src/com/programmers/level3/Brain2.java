@@ -9,9 +9,9 @@ public class Brain2 {
         //"SpIpGpOpNpGJqOqA"	"SIGONG JOA"
         //"AxAxAxAoBoBoB"	"invalid
 
-//        String sentence = "HaEaLaLaObWORLDb";
+        String sentence = "HaEaLaLaObWORLDb";
 //        String sentence = "AxAxAxAoBoBoB";
-        String sentence = "SpIpGpOpNpGJqOqA";
+//        String sentence = "SpIpGpOpNpGJqOqA";
         String solution = solution(sentence);
 
         System.out.println("solution = " + solution);
@@ -23,15 +23,15 @@ public class Brain2 {
         List<String> list = new ArrayList<>();
         char ch;
 
-        
-        while (sentence.length() > 0) {
 
+        while (sentence.length() > 1) {
             if(sentence.length() < 3) //제약조건
                 return "invalid";
-
+            System.out.println("sentence1 = " + sentence);
             if (checkType(sentence, 0)) { // true: 소문자, false: 대문자
                 //규칙2
                 ch = sentence.charAt(0);
+//                System.out.println("ch = " + ch);
                 int index = 0;
                 for (int i = 1; i < sentence.length(); i++) {
                     if (ch == sentence.charAt(i)) { //처음과 마지막 문자가 같은경우
@@ -40,13 +40,15 @@ public class Brain2 {
                     }
                 }
 
+
+//                System.out.println("index = " + index);
                 if (index == 0) {
                     return "invalid";
                 } else {
                     list.add(sentence.substring(0, index + 1));
                     sentence = sentence.substring(index);
-
                 }
+//                System.out.println("sentence2 = " + sentence);
             }else{ // 대문자
                 if(!checkType(sentence,1)) //대문자
                     return "invalid";
@@ -73,7 +75,9 @@ public class Brain2 {
             }
         }
         for (String s : list) {
-            answer += s +" ";
+            System.out.println("s = " + s);
+            answer += convertToString(s) +" ";
+
         }
 
         return answer.trim(); //양쪽 공백 제거
