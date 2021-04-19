@@ -3,7 +3,7 @@ package com.programmers.level3;
 import java.util.Arrays;
 
 /**
- * 입국심사 level3 (미완성)
+ * 입국심사 level3 (완성)
  * */
 public class Immigration {
     public static void main(String[] args) {
