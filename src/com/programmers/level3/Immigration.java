@@ -18,36 +18,25 @@ public class Immigration {
         long answer = 0;
         Arrays.sort(times);//심사시간을 오름차순으로 정렬
 
-//        int left = 1, min, right = Arrays.stream(times).max().getAsInt() * n;
+        long start, end, mid, sum = 0;
+        start = 1;
+        end = (long) n * times[times.length - 1];
 
-        //42 - 60
-        //1 - 60
-        //mid = (60+1) / 2 == 30
+        answer = end;
+        while (start <= end) {
+            mid = (start + end) / 2;
+
+            sum = 0;
+            for (int i = 0; i < times.length; i++) {
+                sum += mid / times[i];
+            }
+            if (n > sum) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+                answer = mid;
+            }
+        }
         return answer;
-    }
-
-    class node{
-        int left;
-        int mid;
-        int right;
-
-        public node(int left, int mid, int right) {
-            this.left = left;
-            this.mid = mid;
-            this.right = right;
-        }
-
-        public int getLeft() {
-
-            return left;
-        }
-
-        public int getMid() {
-            return mid;
-        }
-
-        public int getRight() {
-            return right;
-        }
     }
 }
