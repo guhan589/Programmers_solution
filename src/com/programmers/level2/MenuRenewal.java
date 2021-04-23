@@ -2,7 +2,7 @@ package com.programmers.level2;
 
 import java.util.*;
 
-public class Menu {
+public class MenuRenewal {
     /**
      * 메뉴리뉴얼 level2 (완성)
      *
