@@ -26,8 +26,23 @@ public class Menu2 {
             }
         });
 
+        /*for (Object o : list) {
+            System.out.println("o = " + o);
+        }*/
 
+
+        for (int index = 0; index < list.size()-1; index++) {
+            String temp = String.valueOf(list.get(index));
+            for (int i = 0; i < temp.length(); i++) {
+
+            }
+
+        }
 
         return answer;
+    }
+
+    static void dfs(String orders) {
+
     }
 }
