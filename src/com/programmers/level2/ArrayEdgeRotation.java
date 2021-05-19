@@ -1,120 +1,116 @@
 package com.programmers.level2;
 
-/**
- * 행렬 테두리 회전하기
- * */
 public class ArrayEdgeRotation {
-    static int[][] arr;
-    static boolean type = true;
-    static int x1, x2, y1, y2;
-    static int temp;
+
+    /**
+     * 배열 틀 회전하기 완성(level2)
+     * */
+    enum status {
+        LEFT,RIGHT,DOWN, UP,
+    }
+
+
+    static int x1, x2,tempX, tempY, y1, y2;
+    static int[] result;
+    static int index = 0;
     public static void main(String[] args) {
 
         int rows = 6;
         int columns = 6;
-        int[][] queries = {{2, 2, 5, 4}, {3, 3, 3, 6, 6}, {5, 1, 6, 3}};
+        int[][] queries = {{2, 2, 5, 4}, {3, 3, 6, 6}, {5, 1, 6, 3}};
+
         int[] solution = solution(rows, columns, queries);
 
     }
     public static int[] solution(int rows, int columns, int[][] queries) {
-        int[] answer = {};
-        arr = makeArray(rows, columns);
+        int[][] arr = makeArray(rows, columns);
+        result = new int[queries.length];
 
-        for (int i = 0; i < queries.length - 1; i++) {
-            x1 = queries[i][0] - 1;
-            y1 = queries[i][1] - 1;
+        for (int i = 0; i < queries.length; i++) {
+            tempX = x1 = queries[i][0] - 1;
+            tempY = y1 = queries[i][1] - 1;
             x2 = queries[i][2] - 1;
             y2 = queries[i][3] - 1;
+            int temp = 0;
+
             temp = arr[x1][y1];
-            moveArray(x1, y1, x2, y2);
+            arr = moveArray(status.RIGHT, arr, temp, temp);
+
+//            showArray(arr);
         }
 
 
-
-        return answer;
+        return result;
     }
 
-    static void moveArray(int sR, int sC, int eR, int eC) {
-        //첫 시작 type = true
-//        System.out.print("sR = " + sR + " ");
-//        System.out.print("sC = " + sC + " ");
-//        System.out.print("eR = " + eR + " ");
-//        System.out.print("eC = " + eC + " ");
-//        System.out.println("type = " + type);
-//        System.out.println();
 
-        if (sR == eR && sC == eC)
-            type = false;
-        //2,2,5,4
-        if (type) { //정방향
-            if (sR < x2 && sC < y2) { //시작 점에서 오른쪽 끝으로 이동
-//                System.out.println("right");
-//                System.out.println(arr[sR][++sC]);
-                changeValue(false, sR, ++sC, sR, sC+1);
-                moveArray(sR, sC, eR, eC);
-            } else if (sR < x2 && sC == y2) {//오른쪽 맨 끝 열에서 아래로 이동
-//                System.out.println("down");
-//                System.out.println(arr[++sR][sC]);
-                changeValue(false, ++sR, sC, eR+1, eC);
-                moveArray(sR, sC, eR, eC);
-            }
-        } else {//역방향
-            if (sR == x2 && sC > y1) { //마지막 행열에서 왼쪽으로 이동
-//                System.out.println("left");
-//                System.out.println(arr[sR][--sC]);
-                changeValue(false, sR, --sC, eR, eC-1);
-                moveArray(sR, sC, eR, eC);
-            } else if (x1 < sR && sC == y1) {//하단에서 상단으로 이동
-//                System.out.println("up");
-//                System.out.println("sR = " + sR);
-//                System.out.println("sC = " + sC);
-//
-//                System.out.println(arr[--sR][sC]);
-//                System.out.println(" =========== ");
-                changeValue(false, --sR, sC, sR-1, eC);
-                moveArray(sR, sC, eR, eC);
-            }
-        }
+    static int[][] moveArray(status e, int[][] arr, int temp, int min) {
+        int[][] answer = {};
+        int tempValue;
+
+        switch (e) {
+            case RIGHT:
+
+                if (y1 == y2) {//끝에 도달할 경우 down으로 이동
+                    moveArray(status.DOWN, arr, temp, min);
+                } else {
+                    tempValue = arr[x1][++y1];
+                    arr[x1][y1] = temp;
+                    moveArray(status.RIGHT, arr, tempValue,getMinValue(min,tempValue));
+                }
+                break;
+
+            case LEFT:
+                if (y1 == tempY) {//맨 첫 열에 도달한 경우
+                    moveArray(status.UP, arr, temp, min);
+                } else {
+                    tempValue = arr[x1][--y1];
+                    arr[x1][y1] = temp;
+                    moveArray(status.LEFT, arr, tempValue,getMinValue(min,tempValue));
+                }
+                break;
 
 
-    }
+            case DOWN:
+                if (x1 == x2) {//마지막 행에 도달할 경우
+                    moveArray(status.LEFT, arr, temp,min);
+                } else {
+                    tempValue = arr[++x1][y1];
+                    arr[x1][y1] = temp;
+                    moveArray(status.DOWN, arr, tempValue, getMinValue(min, tempValue));
+                }
+                break;
 
-    static void changeValue(boolean type, int x1, int y1, int x2, int y2) {
-        if(type)
-            arr[x1][y1] = temp;
-        else
-            arr[x2][y2] = arr[x1][y1];
-    }
-    static int[][] moveArray(int[][] arr, int sR, int sC, int eR, int eC) {
-        /**
-         * sR:행 시작위치
-         * sC:열 시작위치
-         * eS:행 끝나는 위치
-         * eC:열 끝나는 위치
-         * */
-        //2,2,5,4
-        //1,1 1,2 1,3
-        //2,1     2,3
-        //3,1     3,3
-        //4,1 4,2 4,3
-        int[][] array = arr;
-        int i = --sR;
 
-        for (; i < eR; i++) {
-            for (int j = sC-1; j < eC; j++) {
-
-            }
-            System.out.println();
+            case UP:
+                if (tempX == x1) {
+                    result[index++] = min;
+                    return arr;
+                } else {
+                    tempValue = arr[--x1][y1];
+                    arr[x1][y1] = temp;
+                    moveArray(status.UP, arr, tempValue, getMinValue(min, tempValue));
+                }
+                break;
 
         }
         return arr;
     }
-
-
-    static int[][] makeArray(int rows, int columns) {
+    static int getMinValue(int num1, int num2) {
+        return Math.min(num1, num2);
+    }
+//    static void showArray(int[][] arr) {
+//
+//        for (int[] ints : arr) {
+//            for (int anInt : ints) {
+//                System.out.print(anInt+"  ");
+//            }
+//            System.out.println();
+//        }
+//    }
+    static int[][] makeArray(int rows, int columns){ //배열 생성
         int number = 1;
         int[][] arr = new int[rows][columns];
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 arr[i][j] = number++;
@@ -122,5 +118,4 @@ public class ArrayEdgeRotation {
         }
         return arr;
     }
-    
 }
