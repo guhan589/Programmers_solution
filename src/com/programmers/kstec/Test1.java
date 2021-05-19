@@ -1,4 +1,4 @@
-package javastandard.kstec;
+package com.programmers.kstec;
 
 import java.util.ArrayList;
 import java.util.Arrays;
