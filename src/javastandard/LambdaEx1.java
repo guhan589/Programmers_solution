@@ -1,5 +1,7 @@
 package javastandard;
 
+import java.util.function.Consumer;
+
 public class LambdaEx1 {
     interface MyFunction{
         void run();
