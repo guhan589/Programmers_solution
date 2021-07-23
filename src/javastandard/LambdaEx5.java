@@ -15,6 +15,8 @@ public class LambdaEx5 {
          * Prdicate: 매개변수 O, return O
          * Function:매개변수 O, return O (조건식을 표현할 떄 사용함)
          * 함수형 인터페이스를 사용하는 이유는 라담식 접근 되기 때문
+         *
+         *
          * */
         Supplier<Integer> s = () -> (int) (Math.random() * 100) + 1;
         Consumer<Integer> c = i -> System.out.print(i + ", ");
