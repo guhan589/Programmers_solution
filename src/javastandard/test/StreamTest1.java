@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 /**
  * 강의주소:https://www.youtube.com/watch?v=x8-p7Hcxpr8
  * */
+//sadsadasdsads
 public class StreamTest1 {
     public static void main(String[] args) {
         /*List<People> femaleList = People.getPeopleList().stream().filter(people -> people.getGendar() == 2).collect(Collectors.toList());

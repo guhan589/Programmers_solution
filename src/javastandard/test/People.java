@@ -30,7 +30,7 @@ public class People {
         this.age = age;
     }
 
-
+//dasdsadsadadada
 
     public int getGendar() {
         return gendar;
