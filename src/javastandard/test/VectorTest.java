@@ -1,10 +1,11 @@
 package javastandard.test;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
+
+/**
+ * Collections sort 와 Arrays.sort 차이를 보기 위한 클래스
+ * */
 public class VectorTest {
     public static void main(String[] args) {
 //        Vector<Student> vector = new Vector<>();
@@ -23,12 +24,42 @@ public class VectorTest {
         list.add(new Student("권구환3", 40, Gender.GIRL));
         list.add(new Student("권구환4", 12, Gender.MEN));
 
-//        for (Student student : list) {
-//            System.out.println("student = " + student);
-//        }
+        Collections.sort(list, new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                if (o1.age >= o2.age) {
+                    return 1;
+                }else
+                    return -1;
+            }
+        });
+        for (Student student : list) {
+            System.out.println("student = " + student);
+        }
     }
 
-    static class Student implements Comparator<Student> {
+    static class Student{
+        private String name;
+        private int age;
+        private Gender gender;
+
+        public Student(String name, int age, Gender gender) {
+
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    ", gender=" + gender +
+                    '}';
+        }
+    }
+    /*static class Student implements Comparator<Student> {
         private String name;
         private int age;
         private Gender gender;
@@ -74,16 +105,22 @@ public class VectorTest {
 
         @Override
         public int compare(Student o1, Student o2) {
-            if (o1.gender == o2.gender) {
+            *//*if (o1.gender == o2.gender) {
                 System.out.println("Equals");
                 return 1;
             } else{
                 System.out.println("else");
                 return -1;
+            }*//*
+
+            if (o1.age >= o2.age) {
+                return 1;
             }
+            else
+                return -1;
 
         }
-    }
+    }*/
 
     enum Gender{
         MEN, GIRL
