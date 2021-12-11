@@ -19,6 +19,19 @@ public class FindMinority {
         int count = 0;
         HashSet<Integer> set = new HashSet<>();
 
+        char[] arrayCh = numbers.toCharArray();
+
+        for (int i = 0; i < arrayCh.length - 1; i++) {
+            for (int j = 1; j < arrayCh.length; j++) {
+                set.add(Integer.parseInt(String.valueOf(arrayCh[i])+String.valueOf(arrayCh[j])));
+            }
+        }
+        for (Integer integer : set) {
+            System.out.println("integer = " + integer);
+        }
+
+
+
 
         return count;
     }
