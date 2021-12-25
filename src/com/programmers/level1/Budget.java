@@ -3,6 +3,7 @@ package com.programmers.level1;
 import java.util.Arrays;
 
 public class Budget {
+    /*Level 1 예산 */
     public static void main(String[] args) {
         int[] d = {1,3,2,5,4};
         int budget = 9;
