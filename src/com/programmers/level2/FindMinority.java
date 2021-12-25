@@ -15,7 +15,13 @@ public class FindMinority {
         int result = solution(numbers);
         System.out.println("result = " + result);
     }
+
     public static int solution(String numbers) {
+        int count = 0;
+
+        return count;
+    }
+    /*public static int solution(String numbers) {
         int count = 0;
         HashSet<Integer> set = new HashSet<>();
 
@@ -35,6 +41,6 @@ public class FindMinority {
 
         return count;
     }
-
+*/
 
 }
