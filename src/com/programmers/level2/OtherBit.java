@@ -3,6 +3,7 @@ package com.programmers.level2;
 public class OtherBit {
     public static void main(String[] args) {
         long[] numbers = {2, 7};
+<<<<<<< HEAD
         long[] solution = solution(numbers);
         for (long l : solution) {
             System.out.println("l = " + l);
@@ -28,6 +29,15 @@ public class OtherBit {
             }
 
         }
+=======
+        long[] result = solution(numbers);
+        for (long l : result) {
+            System.out.println("l = " + l);
+        }
+    }
+    public static long[] solution(long[] numbers) {
+        long[] answer = {};
+>>>>>>> df13de376bf56dfcc5aa5ce8a8a20ffaf25f53d7
         return answer;
     }
 }
