@@ -26,8 +26,8 @@ public class CandidateKey {
         int answer = 0;
 
         for (int i = 0; i < relation[0].length; i++) {
-            boolean[] visited = new boolean[relation[0].length];
-            dfs(visited, 0, 0, i + 1, relation);
+            boolean[] visit = new boolean[relation[0].length];//릴레이션 사이즈 만큼
+            dfs(visit, 0, 0, i + 1, relation);
         }
         answer = candi.size();
         return answer;
