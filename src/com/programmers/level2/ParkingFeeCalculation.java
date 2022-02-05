@@ -1,10 +1,16 @@
 package com.programmers.level2;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
 import java.util.stream.Collectors;
+=======
+import java.util.*;
+import java.util.stream.Collectors;
+
+>>>>>>> e7800fac2ae2ed5429fbc0d81b95f1995166e3ef
 public class ParkingFeeCalculation {
 
     public static void main(String[] args) {
