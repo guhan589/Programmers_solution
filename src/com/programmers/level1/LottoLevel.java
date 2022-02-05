@@ -56,6 +56,7 @@ public class LottoLevel {
             default:
                 answer[0] = 6;
                 answer[1] = 6 + zero_cnt;
+
                 break;
         }
 
