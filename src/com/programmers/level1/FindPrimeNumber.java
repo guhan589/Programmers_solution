@@ -1,4 +1,4 @@
-package com.programmers.kstec;
+package com.programmers.level1;
 
 public class FindPrimeNumber {
     /**
