@@ -1,6 +1,9 @@
 package com.programmers.level2;
 
 public class Jumpmove {
+    /**
+     * 2022.12.01 소수찾기 Level2 깊이탐색으로 풀인
+     * */
     public static void main(String[] args){
         int n = 4;
         long result = solution(n);
