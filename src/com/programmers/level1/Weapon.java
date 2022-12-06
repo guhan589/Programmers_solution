@@ -5,6 +5,9 @@ import java.util.Map;
 
 public class Weapon {
 
+    /**
+     * 기사단원의 무기 level1
+     * */
     public static void main(String[] args) {
         int number = 5, limit = 3, power = 2;
         int solution = solution(number, limit, power);
