@@ -8,25 +8,30 @@ import java.util.stream.Stream;
 public class SelectOrange {
 
     public static void main(String[] args) {
-        int k = 4;
+        int k = 6;
         int[] tangerine = {1, 3, 2, 5, 4, 5, 2, 3};
+//        int k = 2;
+//        int[] tangerine = {1, 1, 1, 1, 2, 2, 2, 3};
         int solution = solution(k, tangerine);
         System.out.println("solution = " + solution);
     }
 
     public static int solution(int k, int[] tangerine) {
-        int answer = 0;
+        int answer = 0, index = 0;
         Map<Integer, Integer> map;
+
+
         map = calMap(tangerine);
-        for (Integer integer : map.keySet()) {
-            System.out.print("integer = " + integer);
-            System.out.println("  /  = " + map.get(integer));
+
+        ArrayList<Integer> keyList = new ArrayList<>(map.keySet());
+        keyList.sort((o1, o2) -> map.get(o2) - map.get(o1));
+
+
+        while (k > 0) {
+            k -= map.get(keyList.get(index));
+            answer++;
+            index++;
         }
-//        List<Integer> list = new ArrayList<>();
-
-
-
-
         return answer;
     }
 
@@ -34,10 +39,7 @@ public class SelectOrange {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int i : tangerine) {
-            if (map.containsKey(i)) {//중복 값이 있을 시
-                map.put(i, map.get(i) + 1);
-            }else
-                map.put(i, 1);
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
         return map;
 
